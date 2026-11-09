@@ -205,3 +205,13 @@ html[lang=ar] .pc-swatches small{text-align:right}
 .teaching{background-color:#f5f2ea;box-shadow:inset 0 14px 18px -14px #2628211c}
 .contact{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .15 0 0 0 0 .15 0 0 0 0 .12 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),radial-gradient(80% 60% at 15% 0,#ffffff12,transparent 70%)}
 .work .mockup{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .15 0 0 0 0 .15 0 0 0 0 .12 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");box-shadow:inset 0 0 40px #26282110}
+/* Talk cards as paper notes pinned to the wall. */
+.talk-grid{gap:26px;padding-top:14px}
+.talk-card{position:relative;border:0;border-radius:2px;background:#fffdf7;padding:34px 22px 24px;box-shadow:0 1px 1px #26282114,0 10px 16px -8px #26282138,10px 16px 24px -14px #26282130;transform:rotate(var(--tilt,-1.2deg))}
+.talk-card:before{content:'';position:absolute;top:-9px;left:50%;width:20px;height:20px;margin-left:-10px;border-radius:50%;background:radial-gradient(circle at 35% 32%,var(--pin-hi,#f28b66) 0 18%,var(--pin,#d96940) 45%,var(--pin-lo,#a94524) 100%);box-shadow:0 3px 4px #2628214d,4px 7px 6px -2px #26282133;z-index:2}
+.talk-card:nth-child(2){--tilt:1.1deg;--pin:#1b2a4a;--pin-hi:#4a5f8a;--pin-lo:#0e172b}
+.talk-card:nth-child(3){--tilt:-.7deg;--pin:#2f8f5b;--pin-hi:#63b98a;--pin-lo:#1b5c39}
+.talk-card:nth-child(4){--tilt:1.5deg;--pin:#d9a520;--pin-hi:#f2cf63;--pin-lo:#9b7310}
+.talk-card:hover{transform:rotate(0) translateY(-6px);box-shadow:0 1px 1px #26282114,0 18px 24px -10px #26282140,14px 22px 30px -14px #26282133}
+.talk-card .talk-icon{background:transparent}
+@media(max-width:600px){.talk-grid{gap:34px}}
