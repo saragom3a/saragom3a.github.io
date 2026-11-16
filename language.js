@@ -135,7 +135,7 @@ const arabic = {
   'My design toolkit': 'أدواتي في التصميم',
   'My story': 'حكايتي', 'Selected work': 'أعمال مختارة', 'Let’s talk ↗': 'نتكلم ↗',
   'UI/UX DESIGNER · DESIGN SYSTEMS · EDUCATOR': 'مصممة واجهات وتجربة مستخدم · أنظمة تصميم · مدرّبة',
-  'Every good': 'كل تجربة جميلة', 'experience starts': 'بتبدأ', 'with': 'من', 'a line.': 'خط.',
+  'Behind every simple experience,': 'ورا كل تجربة بسيطة،', 'a thousand thoughtful decisions.': 'ألف قرار مدروس.',
   'I’m Sara. I turn complex problems into intuitive experiences — one question, one sketch, one thoughtful decision at a time.': 'أنا سارة. بحوّل المشاكل المعقّدة لتجارب سهلة وواضحة، سؤال ورا سؤال، ورسمة ورا رسمة، وقرار تصميم مدروس في كل خطوة.',
   'Explore my work': 'اكتشف شغلي', 'Download CV ↗': 'تحميل السيرة الذاتية ↗',
   'a little curiosity goes a long way': 'شوية فضول يفتحوا طرق كتير', 'THE PERSON BEHIND THE PIXELS': 'الحكاية ورا التصميم',
@@ -172,7 +172,7 @@ const arabic = {
   'RMG homepage with AI solutions and a robotic hand': 'الصفحة الرئيسية لشركة RMG بحلول الذكاء الاصطناعي ويد روبوت',
   'Ninja feature redesign case study with mobile app mockups': 'دراسة حالة إعادة تصميم ميزة نينجا مع نماذج لشاشات التطبيق', 'Complete RMG homepage design': 'تصميم الصفحة الرئيسية لشركة RMG كاملًا',
   'Open Complete RMG homepage design at full size': 'افتح تصميم الصفحة الرئيسية لشركة RMG بالحجم الكامل',
-  'Sara Gomaa — A line tells my story': 'سارة جمعة — خط بيحكي رحلتي',
+  'Sara Gomaa — Thoughtful UX Design': 'سارة جمعة — تصميم تجربة مستخدم مدروس',
   'Ninja — Feature redesign — Sara Gomaa': 'نينجا — إعادة تصميم ميزة — سارة جمعة', 'RMG — Home page — Sara Gomaa': 'RMG — الصفحة الرئيسية — سارة جمعة',
   'The design journey of Sara Gomaa. UI/UX design, thoughtful digital products and scalable design systems.': 'رحلة سارة جمعة في تصميم الواجهات وتجربة المستخدم والمنتجات الرقمية وأنظمة التصميم القابلة للتوسّع.',
   'Ninja — Feature redesign. Original project presentation by Sara Gomaa.': 'نينجا — إعادة تصميم ميزة. العرض الأصلي للمشروع من سارة جمعة.', 'RMG — Home page. Original project presentation by Sara Gomaa.': 'RMG — الصفحة الرئيسية. العرض الأصلي للمشروع من سارة جمعة.'
