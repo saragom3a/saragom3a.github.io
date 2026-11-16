@@ -233,3 +233,31 @@ html[lang=ar] .pc-swatches small{text-align:right}
 .hero h1{font-size:clamp(36px,4.2vw,64px);line-height:1.15;letter-spacing:-1.5px;text-wrap:balance}
 html[lang=ar] .hero h1{white-space:normal;font-size:clamp(30px,3.7vw,58px);line-height:1.65;letter-spacing:0}
 @media(max-width:760px){.hero h1{font-size:clamp(32px,8.4vw,54px)}html[lang=ar] .hero h1{font-size:clamp(26px,6.5vw,43px)}}
+
+/* Compact, scrollable design gallery. */
+.gallery-heading{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.gallery-heading p{font-size:13px;margin:10px 0}
+.gallery-controls{display:flex;gap:8px;flex-shrink:0}
+.gallery-controls button{width:40px;height:40px;border:1px solid var(--line);border-radius:50%;background:var(--paper);font-size:19px}
+.gallery-controls button:hover{background:var(--ink);color:var(--paper)}
+.design-gallery{--columns:4;display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - (var(--columns) - 1)*20px)/var(--columns));gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:var(--orange) transparent;padding:16px 2px 22px;margin-top:20px}
+.design-gallery .gallery-card{min-width:0;text-align:start;scroll-snap-align:start;opacity:1;transform:none}
+.gallery-preview{display:block;height:280px;position:relative;overflow:hidden;border:1px solid var(--line);border-radius:10px;background:#e9ede4;box-shadow:0 8px 20px -14px #26282160}
+.gallery-preview img{display:block;width:100%;height:auto;min-height:100%;object-fit:cover;object-position:top;transition:transform .6s ease}
+.gallery-preview:hover img{transform:translateY(-12px)}
+.gallery-open{position:absolute;inset-inline-end:12px;bottom:12px;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--paper);color:var(--ink)}
+.design-gallery .project-caption{margin-top:16px}
+.design-gallery .project-caption h3{font-size:17px;line-height:1.5;margin:7px 0}
+.design-gallery .project-caption span{font-size:8px;letter-spacing:.7px}
+.design-gallery .company-link{font-size:11px}
+#design-viewer{width:min(1100px,94vw);max-height:90dvh;padding:0;border-radius:12px;overflow:hidden}
+#design-viewer[open]{display:flex;flex-direction:column}
+.design-viewer-bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:15px 22px;border-bottom:1px solid var(--line);flex-shrink:0}
+#design-viewer-title{font-family:inherit;font-size:18px;line-height:1.5;margin:0;letter-spacing:0}
+.design-viewer-close{flex-shrink:0;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:transparent;font-size:28px}
+.design-viewer-body{overflow:auto;overscroll-behavior:contain;padding:16px;min-height:0}
+.design-viewer-body img{display:block;width:100%;height:auto}
+body.design-viewer-open{overflow:hidden}
+@media(max-width:1199px){.design-gallery{--columns:3}.gallery-preview{height:250px}}
+@media(max-width:760px){.design-gallery{--columns:2;gap:14px;grid-auto-columns:calc((100% - 14px)/2)}.gallery-preview{height:230px}.gallery-heading{align-items:flex-start;gap:12px}.gallery-controls{gap:5px}.gallery-controls button{width:36px;height:36px}}
+@media(max-width:440px){.design-gallery{grid-auto-columns:78%}.gallery-preview{height:300px}.gallery-heading{flex-wrap:wrap}}

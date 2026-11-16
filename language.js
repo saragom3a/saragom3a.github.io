@@ -1,4 +1,11 @@
 const arabic = {
+  'Small previews. Full stories. Open any design to explore.': 'لمحات من التصاميم. افتح أي تصميم وشوفه كامل.',
+  'Previous designs': 'التصاميم السابقة',
+  'Next designs': 'التصاميم التالية',
+  'Pause gallery': 'إيقاف حركة الجاليري',
+  'Website design gallery': 'معرض تصميمات المواقع',
+  'Open full design': 'افتح التصميم كامل',
+  'Close design': 'إغلاق التصميم',
   'EMPLOYEE HUB / LANDING PAGE': 'بوابة الموظفين / صفحة هبوط',
   'WATER INNOVATION / LANDING PAGE': 'ابتكار المياه / صفحة هبوط',
   'LANDING PAGE · EMPLOYEE HUB': 'صفحة هبوط · بوابة الموظفين',

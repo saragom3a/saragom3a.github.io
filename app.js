@@ -98,3 +98,57 @@ document.querySelectorAll('.inline-project .website-viewport').forEach(viewport 
 });
 window.addEventListener('blur', hideScrollHint);
 window.addEventListener('scroll', hideScrollHint, { passive: true });
+
+
+// A compact gallery with optional motion and an accessible full-design viewer.
+const designGallery = document.querySelector('.design-gallery');
+const designViewer = document.querySelector('#design-viewer');
+const galleryPause = document.querySelector('#gallery-pause');
+let galleryPaused = reduced.matches;
+let galleryVisible = false;
+let galleryInteracting = false;
+function galleryLabels() {
+  const ar = document.documentElement.lang === 'ar';
+  galleryPause.textContent = galleryPaused ? '▶' : 'Ⅱ';
+  galleryPause.setAttribute('aria-pressed', String(galleryPaused));
+  galleryPause.setAttribute('aria-label', ar ? (galleryPaused ? 'تشغيل حركة الجاليري' : 'إيقاف حركة الجاليري') : (galleryPaused ? 'Play gallery' : 'Pause gallery'));
+  document.querySelector('#gallery-prev').textContent = ar ? '→' : '←';
+  document.querySelector('#gallery-next').textContent = ar ? '←' : '→';
+}
+function moveGallery(direction) {
+  const rtl = getComputedStyle(designGallery).direction === 'rtl';
+  const step = designGallery.firstElementChild.getBoundingClientRect().width + parseFloat(getComputedStyle(designGallery).columnGap);
+  const position = Math.abs(designGallery.scrollLeft);
+  const maximum = designGallery.scrollWidth - designGallery.clientWidth;
+  const target = direction > 0 ? (position >= maximum - 3 ? 0 : Math.min(maximum, position + step)) : (position <= 3 ? maximum : Math.max(0, position - step));
+  designGallery.scrollTo({left: target * (rtl ? -1 : 1), behavior: reduced.matches || paused ? 'auto' : 'smooth'});
+}
+document.querySelector('#gallery-prev').addEventListener('click', () => moveGallery(-1));
+document.querySelector('#gallery-next').addEventListener('click', () => moveGallery(1));
+galleryPause.addEventListener('click', () => { galleryPaused = !galleryPaused; galleryLabels(); });
+designGallery.addEventListener('pointerenter', () => { galleryInteracting = true; });
+designGallery.addEventListener('pointerleave', () => { galleryInteracting = false; });
+designGallery.addEventListener('touchstart', () => { galleryPaused = true; galleryLabels(); }, {passive:true});
+new IntersectionObserver(([entry]) => { galleryVisible = entry.isIntersecting; }, {threshold:.25}).observe(designGallery);
+setInterval(() => {
+  if (galleryVisible && !galleryPaused && !paused && !reduced.matches && !galleryInteracting && !document.hidden && !designViewer.open && !document.querySelector('#web-design').contains(document.activeElement)) moveGallery(1);
+}, 5000);
+document.addEventListener('languagechange', () => { galleryLabels(); designGallery.scrollTo({left:0,behavior:'instant'}); });
+designGallery.querySelectorAll('.gallery-preview').forEach(link => {
+  link.addEventListener('click', event => {
+    if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    const source = link.querySelector('img');
+    const full = designViewer.querySelector('img');
+    full.src = source.src;
+    full.alt = source.alt;
+    document.querySelector('#design-viewer-title').textContent = link.closest('article').querySelector('h3').textContent;
+    designViewer.querySelector('.design-viewer-body').scrollTop = 0;
+    designViewer.showModal();
+    document.body.classList.add('design-viewer-open');
+  });
+});
+designViewer.querySelector('.design-viewer-close').addEventListener('click', () => designViewer.close());
+designViewer.addEventListener('click', event => { if(event.target === designViewer) { const r=designViewer.getBoundingClientRect(); if(event.clientX<r.left || event.clientX>r.right || event.clientY<r.top || event.clientY>r.bottom) designViewer.close(); } });
+designViewer.addEventListener('close', () => document.body.classList.remove('design-viewer-open'));
+galleryLabels();
