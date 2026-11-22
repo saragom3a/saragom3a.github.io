@@ -141,7 +141,7 @@ const arabic = {
   'My design toolkit': 'أدواتي في التصميم',
   'My story': 'حكايتي', 'Selected work': 'أعمال مختارة', 'Let’s talk ↗': 'نتكلم ↗',
   'UI/UX DESIGNER · DESIGN SYSTEMS · EDUCATOR': 'مصممة واجهات وتجربة مستخدم · أنظمة تصميم · مدرّبة',
-  'Behind every simple experience,': 'ورا كل تجربة بسيطة،', 'a thousand thoughtful decisions.': 'ألف قرار مدروس.',
+  'Behind every simple experience,': 'ورا كل تجربة بسيطة،', 'a thousand thoughtful decisions.': 'ألف قرار مدروس.', 'a thousand': 'ألف قرار', 'thoughtful': 'مدروس.', 'decisions.': '\u200c', 'Let’s talk': 'نتكلم', '01 · UX/UI CASE STUDY': '01 · دراسة حالة لتجربة المستخدم', '02 · LANDING PAGE': '02 · صفحة هبوط',
   'I’m Sara. I turn complex problems into intuitive experiences — one question, one sketch, one thoughtful decision at a time.': 'أنا سارة. بحوّل المشاكل المعقّدة لتجارب سهلة وواضحة، سؤال ورا سؤال، ورسمة ورا رسمة، وقرار تصميم مدروس في كل خطوة.',
   'Explore my work': 'اكتشف شغلي', 'Download CV ↗': 'تحميل السيرة الذاتية ↗',
   'a little curiosity goes a long way': 'شوية فضول يفتحوا طرق كتير', 'THE PERSON BEHIND THE PIXELS': 'الحكاية ورا التصميم',

@@ -26,12 +26,19 @@ function updateProgress() {
   const heroProgress = Math.max(0, Math.min(1, -hero.getBoundingClientRect().top / hero.offsetHeight));
   character.style.setProperty('--scroll-tilt', `${paused ? 0 : heroProgress * -3}deg`);
   character.style.setProperty('--scroll-rise', `${paused ? 0 : heroProgress * -24}px`);
+  revealPassed();
+}
+// Fast scrolling can skip the observer; reveal anything already reached.
+function revealPassed() {
+  document.querySelectorAll('.reveal:not(.visible)').forEach(element => {
+    if (element.getBoundingClientRect().top < innerHeight) element.classList.add('visible');
+  });
 }
 let scheduled = false;
 addEventListener('scroll', () => { if (!scheduled) { scheduled = true; requestAnimationFrame(() => { updateProgress(); scheduled = false; }); } }, { passive: true });
 addEventListener('resize', updateProgress);
 updateProgress();
-const observer = new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: .1 });
+const observer = new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0 });
 document.querySelectorAll('.chapter,.project,.system-art,.teaching h2').forEach(element => { element.classList.add('reveal'); observer.observe(element); });
 document.querySelector('#year').textContent = new Date().getFullYear();
 
@@ -137,3 +144,17 @@ setInterval(() => {
 }, 5000);
 document.addEventListener('languagechange', () => { galleryLabels(); designGallery.scrollTo({left:0,behavior:'instant'}); });
 galleryLabels();
+
+// Show the current section in the navigation.
+const navLinks = [...document.querySelectorAll('nav a[href^="#"]')];
+const navTargets = navLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+function markCurrentSection() {
+  let current = null;
+  navTargets.forEach(target => { if (target.getBoundingClientRect().top < innerHeight * .4) current = target; });
+  navLinks.forEach(link => {
+    if (current && link.getAttribute('href') === '#' + current.id) link.setAttribute('aria-current', 'true');
+    else link.removeAttribute('aria-current');
+  });
+}
+addEventListener('scroll', markCurrentSection, { passive: true });
+markCurrentSection();
